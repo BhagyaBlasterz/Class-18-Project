@@ -17,33 +17,34 @@ var distance=0;
 var gameOver, restart;
 
 function preload(){
-  pathImg = loadImage("images/Road.png");
-  mainRacerImg1 = loadAnimation("images/mainPlayer1.png","images/mainPlayer2.png");
-  mainRacerImg2= loadAnimation("images/mainPlayer3.png");
+  pathImg = loadImage("Road.png");
+  mainRacerImg1 = loadAnimation("mainPlayer1.png","mainPlayer2.png");
+  mainRacerImg2= loadAnimation("mainPlayer3.png");
   
-  oppPink1Img = loadAnimation("images/opponent1.png","images/opponent2.png");
-  oppPink2Img = loadAnimation("images/opponent3.png");
+  oppPink1Img = loadAnimation("opponent1.png","opponent2.png");
+  oppPink2Img = loadAnimation("opponent3.png");
   
-  oppYellow1Img = loadAnimation("images/opponent4.png","images/opponent5.png");
-  oppYellow2Img = loadAnimation("images/opponent6.png");
+  oppYellow1Img = loadAnimation("opponent4.png","opponent5.png");
+  oppYellow2Img = loadAnimation("opponent6.png");
   
-  oppRed1Img = loadAnimation("images/opponent7.png","images/opponent8.png");
-  oppRed2Img = loadAnimation("images/opponent9.png");
+  oppRed1Img = loadAnimation("opponent7.png","opponent8.png");
+  oppRed2Img = loadAnimation("opponent9.png");
   
-  cycleBell = loadSound("sound/bell.mp3");
-  gameOverImg = loadImage("images/gameOver.png");
+  cycleBell = loadSound("bell.mp3");
+  gameOverImg = loadImage("gameOver.png");
 }
 
 function setup(){
   
-createCanvas(1200,300);
+createCanvas(windowWidth, windowHeight);
 // Moving background
-path=createSprite(100,150);
+path=createSprite(width/2,height/2);
 path.addImage(pathImg);
 path.velocityX = -5;
+//path.scale = 0.2
 
 //creating boy running
-mainCyclist  = createSprite(70,150);
+mainCyclist  = createSprite(width/2,150);
 mainCyclist.addAnimation("SahilRunning",mainRacerImg1);
 mainCyclist.scale=0.07;
   
@@ -143,7 +144,7 @@ function draw() {
 }
 
 function pinkCyclists(){
-        player1 =createSprite(1100,Math.round(random(50, 250)));
+        player1 =createSprite(width+1,Math.round(random(50, 250)));
         player1.scale =0.06;
         player1.velocityX = -(6 + 2*distance/150);
         player1.addAnimation("opponentPlayer1",oppPink1Img);
@@ -152,7 +153,7 @@ function pinkCyclists(){
 }
 
 function yellowCyclists(){
-        player2 =createSprite(1100,Math.round(random(50, 250)));
+        player2 =createSprite(width+1,Math.round(random(50, 250)));
         player2.scale =0.06;
         player2.velocityX = -(6 + 2*distance/150);
         player2.addAnimation("opponentPlayer2",oppYellow1Img);
@@ -161,7 +162,7 @@ function yellowCyclists(){
 }
 
 function redCyclists(){
-        player3 =createSprite(1100,Math.round(random(50, 250)));
+        player3 =createSprite(width+1,Math.round(random(50, 250)));
         player3.scale =0.06;
         player3.velocityX = -(6 + 2*distance/150);
         player3.addAnimation("opponentPlayer3",oppRed1Img);
